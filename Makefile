@@ -1,44 +1,87 @@
-NAME			=	libftprintf.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/29 18:06:11 by anrodrig          #+#    #+#              #
+#    Updated: 2024/05/01 19:32:42 by anrodrig         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror
-AR				=	ar rcs
-RM				=	rm -rf
+#Variables
 
-SRC				=	ft_printf \
-SRCS 			=	$(addsuffix .c, $(SRC))
+NAME		= libftprintf.a
+INCLUDE		= include
+LIBFT		= libft
+SRC_DIR		= src/
+OBJ_DIR		= obj/
+CC			= cc
+CFLAGS		= -Wall -Werror -Wextra -I
+RM			= rm -f
+AR			= ar rcs
 
-OBJ_DIR			=	obj
-OBJS			=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
+# Colors
 
-LIBFT_PATH		=	./libft
-LIBFT			=	$(LIBFT_PATH)/libft.a
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
-$(OBJ_DIR)/%.o:		%.c
-					$(CC) $(CFLAGS) -c $< -o $@
+#Sources
 
-all:				$(NAME)
+SRC_FILES	=	ft_printf		\
+				printf_arg		\
+				printf_char		\
+				printf_int		\
+				printf_unsigned	\
+				printf_string	\
 
-bonus:				all
 
-$(NAME):			$(LIBFT) $(OBJ_DIR) $(OBJS)
-				cp	$(LIBFT) $(NAME)
-					$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-$(LIBFT):                                                                                                                                                                                                      
-					make -C $(LIBFT_PATH) all
+###
 
-$(OBJ_DIR):
-					mkdir -p $(OBJ_DIR)
+OBJF		=	.cache_exists
+
+all:		$(NAME)
+
+$(NAME):	$(OBJ)
+			@make -C $(LIBFT)
+			@cp libft/libft.a .
+			@mv libft.a $(NAME)
+			@$(AR) $(NAME) $(OBJ)
+			@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
+			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(OBJF):
+			@mkdir -p $(OBJ_DIR)
 
 clean:
-					make -C $(LIBFT_PATH) clean
-					$(RM) $(OBJ_DIR)
+			@$(RM) -rf $(OBJ_DIR)
+			@make clean -C $(LIBFT)
+			@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
 
-fclean:				clean
-					make -C $(LIBFT_PATH) fclean
-					$(RM) $(NAME)
+fclean:		clean
+			@$(RM) -f $(NAME)
+			@$(RM) -f $(LIBFT)/libft.a
+			@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
+			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
 
-re:					fclean all
+re:			fclean all
+			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
-.PHONY:				all bonus clean fclean re libft
+norm:
+			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
+
+.PHONY:		all clean fclean re norm

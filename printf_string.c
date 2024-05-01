@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 18:06:04 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/01 18:57:24 by anrodrig         ###   ########.fr       */
+/*   Created: 2024/05/01 18:55:05 by anrodrig          #+#    #+#             */
+/*   Updated: 2024/05/01 18:56:02 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft/libft.h"
-
-int     ft_printf(const char *format, ...);
-int     printf_char(int c);
-int     printf_string(char *s);
-int     printf_int(long nb);
-int     printf_unsigned(unsigned int n);
-int     printf_arg(va_list ap, const char format);
-
-#endif
+int     printf_string(char *s)
+{
+    int i;
+    
+    i = 0;
+    if (!s)
+        return (write(1, "(null)", 6));
+    while (s[i] != '\0')
+        printf_char(s[i++]);
+    return (i);
+}
