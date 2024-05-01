@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_unsigned.c                                  :+:      :+:    :+:   */
+/*   printf_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 18:48:16 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/01 20:29:24 by anrodrig         ###   ########.fr       */
+/*   Created: 2024/05/01 21:10:52 by anrodrig          #+#    #+#             */
+/*   Updated: 2024/05/01 21:12:30 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int       printf_unsigned(unsigned int n)
+int     printf_ptr(unsigned long n)
 {
-    int    count;
-    char            c[10];
-    int             i;
-
-    count = 0;
-    i = 0;
-    if (n == 0)
-        count += printf_char('0');
-    while(n)
-    {
-        c[i++] = (n % 10) + 48;
-        n /= 10;
-    }
-    while (i--)
-        count += printf_char(c[i]);
-    return (count);
+    
 }

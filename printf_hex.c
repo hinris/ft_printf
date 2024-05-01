@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_unsigned.c                                  :+:      :+:    :+:   */
+/*   printf_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 18:48:16 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/01 20:29:24 by anrodrig         ###   ########.fr       */
+/*   Created: 2024/05/01 19:54:22 by anrodrig          #+#    #+#             */
+/*   Updated: 2024/05/01 21:03:56 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int       printf_unsigned(unsigned int n)
+int printf_hex(long n, int base, char *str)
 {
-    int    count;
-    char            c[10];
-    int             i;
-
+    int count;
+    
     count = 0;
-    i = 0;
-    if (n == 0)
-        count += printf_char('0');
-    while(n)
+    if (n < 0)
     {
-        c[i++] = (n % 10) + 48;
-        n /= 10;
+        write(1, "-", 1);
+        return (printf_hex(-n, base, str) + 1);
     }
-    while (i--)
-        count += printf_char(c[i]);
-    return (count);
+    else if (n < base)
+        return (printf_char(str[n]));
+    else
+    {
+        count = printf_hex(n / base, base, str);
+        return (count + printf_hex(n % base, base, str));
+    }
 }

@@ -6,27 +6,12 @@
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:06:00 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/01 18:56:31 by anrodrig         ###   ########.fr       */
+/*   Updated: 2024/05/01 19:52:40 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* int     printf_ptr(unsigned long long)
-{
-    
-}*/
-
-/* int     printf_ptr(unsigned long)
-{
-    int     count;
-
-    count = 0;
-    
-    return (count);
-} */
-
-//cspdiuxX%
 int ft_printf(const char *format, ...)
 {
     va_list             ap;
