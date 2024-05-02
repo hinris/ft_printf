@@ -6,7 +6,7 @@
 #    By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 18:06:11 by anrodrig          #+#    #+#              #
-#    Updated: 2024/05/02 11:48:48 by anrodrig         ###   ########.fr        #
+#    Updated: 2024/05/02 15:01:51 by anrodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CC 			= cc
 CFLAGS 		= -Wall -Werror -Wextra
 LIBFTDIR 	= ./libft
 
-SRCS = 	ft_printf.c 		\
-		ft_printf_aux.c		\
+SRCS = 	ft_printf.c ft_printf_aux.c	ft_pfptr.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -37,9 +36,9 @@ $(NAME): makelibft $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@cd $(LIBFTDIR) && make clean
-	
+
 fclean: clean
 	@rm -f $(NAME)
 	@cd $(LIBFTDIR) && make fclean
-	
+
 re: fclean all

@@ -19,13 +19,15 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-int	ft_printf(const char *format, ...);
-int	ft_pfchar(int c);
-int	ft_pfstring(char *s);
-int	ft_pfint(long nb);
-int	ft_pfunsigned(unsigned int n);
-int	ft_pfarg(va_list ap, const char format);
-int	ft_pfhex(long, int base, char *str);
-int	ft_pfptr(unsigned long n);
+int		ft_printf(const char *format, ...);
+int		ft_pfchar(int c);
+int		ft_pfstring(char *s);
+int		ft_pfint(long nb);
+int		ft_pfunsigned(unsigned int n);
+int		ft_pfarg(va_list ap, const char format);
+int		ft_pfhex(long, int base, char *str);
+int		ft_pfptr(unsigned long n);
+int		ft_ptr_len(unsigned long n);
+void		ft_put_ptr(unsigned long n);
 
 #endif

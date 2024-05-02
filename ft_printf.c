@@ -6,7 +6,7 @@
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:06:00 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/02 11:48:42 by anrodrig         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:12:35 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_pfarg(va_list ap, const char format)
 		count += ft_pfchar(va_arg(ap, int));
 	else if (format == 's')
 		count += ft_pfstring(va_arg(ap, char *));
-	/* else if (format == 'p')
-	   count += ft_pfptr(va_arg(ap, unsigned long)); */
+	else if (format == 'p')
+	   count += ft_pfptr(va_arg(ap, unsigned long));
 	else if (format == 'd' || format == 'i')
 		count += ft_pfint((long)va_arg(ap, int));
 	else if (format == 'u')
@@ -58,11 +58,4 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-/* int main() {
 
-   int a = 10;
-
-   printf("%u\n", -1);
-   ft_printf("%u", -1);
-   return 0;
-   } */
