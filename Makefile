@@ -6,13 +6,13 @@
 #    By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 18:06:11 by anrodrig          #+#    #+#              #
-#    Updated: 2024/05/02 15:01:51 by anrodrig         ###   ########.fr        #
+#    Updated: 2024/05/02 20:08:48 by anrodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 LIBFTNAME 	= libft.a
-CC 			= cc
+CC		= cc
 CFLAGS 		= -Wall -Werror -Wextra
 LIBFTDIR 	= ./libft
 

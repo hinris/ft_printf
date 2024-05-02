@@ -6,7 +6,7 @@
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:52:27 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/02 11:48:39 by anrodrig         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:08:07 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_pfstring(char *s)
 
 int	ft_pfint(long nb)
 {
-	int	count;
 	char	c[10];
-	int	i;
+	int		count;
+	int		i;
 
 	count = 0;
 	i = 0;
@@ -44,7 +44,7 @@ int	ft_pfint(long nb)
 		nb = -nb;
 		count += ft_pfchar('-');
 	}
-	while(nb)
+	while (nb)
 	{
 		c[i++] = (nb % 10) + 48;
 		nb /= 10;
@@ -56,15 +56,15 @@ int	ft_pfint(long nb)
 
 int	ft_pfunsigned(unsigned int n)
 {
-	int	count;
-	int	i;
 	char	c[10];
+	int		count;
+	int		i;
 
 	count = 0;
 	i = 0;
 	if (n == 0)
 		count += ft_pfchar('0');
-	while(n)
+	while (n)
 	{
 		c[i++] = (n % 10) + 48;
 		n /= 10;
