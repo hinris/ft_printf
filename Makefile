@@ -6,7 +6,7 @@
 #    By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/29 18:06:11 by anrodrig          #+#    #+#              #
-#    Updated: 2024/05/01 21:04:24 by anrodrig         ###   ########.fr        #
+#    Updated: 2024/05/02 11:48:48 by anrodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,7 @@ CFLAGS 		= -Wall -Werror -Wextra
 LIBFTDIR 	= ./libft
 
 SRCS = 	ft_printf.c 		\
-		printf_arg.c		\
-		printf_char.c		\
-		printf_string.c		\
-		printf_int.c		\
-		printf_unsigned.c	\
-		printf_hex.c		\
+		ft_printf_aux.c		\
 
 OBJS = $(SRCS:.c=.o)
 

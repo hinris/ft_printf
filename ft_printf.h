@@ -6,7 +6,7 @@
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:06:04 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/01 21:02:44 by anrodrig         ###   ########.fr       */
+/*   Updated: 2024/05/02 11:48:45 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-int     ft_printf(const char *format, ...);
-int     printf_char(int c);
-int     printf_string(char *s);
-int     printf_int(long nb);
-int     printf_unsigned(unsigned int n);
-int     printf_arg(va_list ap, const char format);
-int     printf_hex(long, int base, char *str);
+int	ft_printf(const char *format, ...);
+int	ft_pfchar(int c);
+int	ft_pfstring(char *s);
+int	ft_pfint(long nb);
+int	ft_pfunsigned(unsigned int n);
+int	ft_pfarg(va_list ap, const char format);
+int	ft_pfhex(long, int base, char *str);
+int	ft_pfptr(unsigned long n);
 
 #endif
