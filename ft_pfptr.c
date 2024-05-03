@@ -6,7 +6,7 @@
 /*   By: anrodrig <anrodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 21:10:52 by anrodrig          #+#    #+#             */
-/*   Updated: 2024/05/02 20:06:48 by anrodrig         ###   ########.fr       */
+/*   Updated: 2024/05/03 18:17:57 by anrodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,45 @@ int	ft_pfptr(void *format)
 
 /* int main()
 {
-	void *pt;
-	int j = 0;
+	char	c = 'a';
+	char	*s = "bruh";
+	char 	*sn = NULL;
+	int		i = 0;
+	void	*pn = NULL;
+	void	*pt = &c;
+	int		min = -2147483648;
+	int		max = 2147483647;
 
-	pt = NULL;
-	j = printf(NULL);
-	ft_printf("%d", j);
-	return 0;
+	printf("\noriginal printf:\n");
+	i = printf("char: %c\n", c);
+	printf("size: %d\n", i);
+	i = printf("string: %s\n", s);
+	printf("size: %d\n", i);
+	i = printf("string null: %s\n", sn);
+	printf("size: %d\n", i);
+	i = printf("int: %d, %i, %i\n", '0', min, max);
+	printf("size: %d\n", i);
+	i = printf("null pointer: %p\n", pn);
+	printf("size: %d\n", i);
+	i = printf("pointer: %p\n", pt);
+	printf("size: %d\n", i);
+	i = printf(0);
+	printf("\nsize: %d\n\n", i);
+
+	ft_printf("ft_printf:\n");
+	i = ft_printf("char: %c\n", c);
+	ft_printf("size: %d\n", i);
+	i = ft_printf("string: %s\n", s);
+	ft_printf("size: %d\n", i);
+	i = ft_printf("string null: %s\n", sn);
+	ft_printf("size: %d\n", i);
+	i = ft_printf("int: %d, %i, %i\n", '0', min, max);
+	ft_printf("size: %d\n", i);
+	i = ft_printf("null pointer: %p\n", pn);
+	ft_printf("size: %d\n", i);
+	i = ft_printf("pointer: %p\n", pt);
+	ft_printf("size: %d\n", i);
+	i = ft_printf(0);
+	ft_printf("\nsize: %d\n", i);
+	return (0);
 } */
